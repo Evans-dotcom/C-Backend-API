@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
 using Microsoft.Extensions.Configuration;
+=======
+>>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
@@ -9,7 +12,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using System.Text;
+<<<<<<< HEAD
 using UserAuthenticate.models;
+=======
+using UserAuthenticate.Models;
+>>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 
 namespace UserAuthenticate
 {
@@ -100,6 +107,7 @@ namespace UserAuthenticate
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
+<<<<<<< HEAD
                 app.UseSwaggerUI();
                 
             //    {
@@ -115,6 +123,20 @@ namespace UserAuthenticate
             }
             app.UseSwagger();
             app.UseSwaggerUI();
+=======
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "User Authentication API v1");
+                    c.RoutePrefix = "swagger"; // Swagger UI at /swagger
+                });
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
+>>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 
             app.UseHttpsRedirection();
 
