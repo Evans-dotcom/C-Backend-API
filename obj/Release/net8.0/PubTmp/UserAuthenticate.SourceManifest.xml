@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\inetpub\wwwroot\UserAuthenticate\obj\Release\net8.0\PubTmp\Out\" />
+  <dbfullsql path="C:\inetpub\wwwroot\UserAuthenticate\obj\Release\net8.0\PubTmp\EFSQLScripts\UserAuthenticate.models.APIDbContext.sql" />
+  <dbfullsql path="C:\inetpub\wwwroot\UserAuthenticate\obj\Release\net8.0\PubTmp\EFSQLScripts\UserAuthenticate.models.CustomerDbContext.sql" />
+  <dbfullsql path="C:\inetpub\wwwroot\UserAuthenticate\obj\Release\net8.0\PubTmp\EFSQLScripts\UserAuthenticate.models.DriverDbContext.sql" />
+  <dbfullsql path="C:\inetpub\wwwroot\UserAuthenticate\obj\Release\net8.0\PubTmp\EFSQLScripts\UserAuthenticate.models.ProductDbContext.sql" />
+</sitemanifest>
