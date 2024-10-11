@@ -1,11 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
 
 namespace UserAuthenticate.Migrations
 {
-    public partial class InitialDB : Migration
+    /// <inheritdoc />
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+           
+
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new

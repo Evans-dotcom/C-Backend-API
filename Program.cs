@@ -44,18 +44,9 @@ namespace UserAuthenticate
             // Add controllers
             builder.Services.AddControllers();
 
-            // Configure Entity Framework with multiple SQL Server contexts
-            builder.Services.AddDbContext<APIDbContext>(options =>
+            // Configure Entity Framework with a single combined DbContext
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
-            builder.Services.AddDbContext<ProductDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("ProductConnection")));
-
-            builder.Services.AddDbContext<DriverDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DriverConnection")));
-
-            builder.Services.AddDbContext<CustomerDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("CustomerConnection")));
 
             // Configure Swagger
             builder.Services.AddSwaggerGen(c =>
@@ -100,21 +91,20 @@ namespace UserAuthenticate
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
+                app.UseSwaggerUI();    
+                {
+                  
+                };
+                app.UseSwagger();
                 app.UseSwaggerUI();
-                
-            //    {
-            //        string swaggerJsonBasePath = string.IsNullOrWhiteSpace(c.RoutePrefix) ? "." : "..";
-            //        c.SwaggerEndpoint($"{swaggerJsonBasePath}/swagger/v1/swagger.json", "My API V1");
-            //    });
-            //    app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Hstatuome/Error");
-            //    app.UseHsts();
+
+                app.UseDeveloperExceptionPage();
             }
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
 
