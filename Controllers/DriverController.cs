@@ -9,9 +9,9 @@ using Newtonsoft.Json; // Make sure to include this for JSON serialization
 [Route("api/[controller]")]
 public class DriverController : ControllerBase
 {
-    private readonly DriverDbContext _context;
+    private readonly ApplicationDbContext _context;
 
-    public DriverController(DriverDbContext context)
+    public DriverController(ApplicationDbContext context)
     {
         _context = context;
     }

@@ -2,18 +2,15 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-<<<<<<< HEAD
 		<UserSecretsId>85f832e8-a330-4de7-b3b5-47849d2e4b81</UserSecretsId>
 		<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
 		<DockerfileContext>.</DockerfileContext>
-=======
->>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Controllers\WeatherForecastController.cs" />
-    <Compile Remove="WeatherForecast.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Controllers\WeatherForecastController.cs" />
+		<Compile Remove="WeatherForecast.cs" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="12.0.1" />
@@ -31,10 +28,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-<<<<<<< HEAD
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
-=======
->>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
 		<PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />

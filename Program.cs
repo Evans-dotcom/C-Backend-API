@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using Microsoft.Extensions.Configuration;
-=======
->>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
@@ -12,11 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using System.Text;
-<<<<<<< HEAD
 using UserAuthenticate.models;
-=======
-using UserAuthenticate.Models;
->>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 
 namespace UserAuthenticate
 {
@@ -51,18 +44,9 @@ namespace UserAuthenticate
             // Add controllers
             builder.Services.AddControllers();
 
-            // Configure Entity Framework with multiple SQL Server contexts
-            builder.Services.AddDbContext<APIDbContext>(options =>
+            // Configure Entity Framework with a single combined DbContext
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
-            builder.Services.AddDbContext<ProductDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("ProductConnection")));
-
-            builder.Services.AddDbContext<DriverDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DriverConnection")));
-
-            builder.Services.AddDbContext<CustomerDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("CustomerConnection")));
 
             // Configure Swagger
             builder.Services.AddSwaggerGen(c =>
@@ -107,28 +91,13 @@ namespace UserAuthenticate
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-<<<<<<< HEAD
-                app.UseSwaggerUI();
-                
-            //    {
-            //        string swaggerJsonBasePath = string.IsNullOrWhiteSpace(c.RoutePrefix) ? "." : "..";
-            //        c.SwaggerEndpoint($"{swaggerJsonBasePath}/swagger/v1/swagger.json", "My API V1");
-            //    });
-            //    app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Hstatuome/Error");
-            //    app.UseHsts();
-            }
-            app.UseSwagger();
-            app.UseSwaggerUI();
-=======
-                app.UseSwaggerUI(c =>
+                app.UseSwaggerUI();    
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "User Authentication API v1");
-                    c.RoutePrefix = "swagger"; // Swagger UI at /swagger
-                });
+                  
+                };
+                app.UseSwagger();
+                app.UseSwaggerUI();
+
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -136,7 +105,6 @@ namespace UserAuthenticate
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
->>>>>>> 9fa3ee070bbc236932521d74f9fe5488fc1cfc21
 
             app.UseHttpsRedirection();
 

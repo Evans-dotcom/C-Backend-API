@@ -2,17 +2,17 @@
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
-using UserAuthenticate.models; // Ensure the correct namespace for your models
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using UserAuthenticate.models; // Ensure the correct namespace for your models
 
 [ApiController]
 [Route("api/[controller]")]
 public class CustomerController : ControllerBase
 {
-    private readonly CustomerDbContext _context;
+    private readonly ApplicationDbContext _context;
 
-    public CustomerController(CustomerDbContext context)
+    public CustomerController(ApplicationDbContext context)
     {
         _context = context;
     }

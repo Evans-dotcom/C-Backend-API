@@ -17,10 +17,10 @@ namespace UserAuthenticate.Controllers
     [Route("api/[controller]")]
  public class AuthController : ControllerBase
     {
-        private readonly APIDbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
 
-        public AuthController(APIDbContext context, IConfiguration configuration)
+        public AuthController(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
